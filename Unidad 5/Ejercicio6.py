@@ -7,10 +7,10 @@ lista = [15,10,32,44,56,69,72]
 
 
 #Sacamos el ultimo digito y lo guardamos
-ultimo = lista.pop() # [2]
+ultimo = lista.pop() 
 
 # Lo insertamos en la posición 0
-lista.insert(0, ultimo) # [3]
+lista.insert(0, ultimo) 
 
 #Imprimimmos la lista modificada
 print(f"Lista Final: {lista}") 

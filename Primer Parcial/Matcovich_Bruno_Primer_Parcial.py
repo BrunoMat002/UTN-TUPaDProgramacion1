@@ -7,9 +7,7 @@
 
 
 #Inicializamos una lista vacia para guardar las herramientas
-
 listaHerramientas = []
-PriOpcion = ""
 
 #Creamos lo que sera el menu interactivo
 print("\n--Menu--")
@@ -34,15 +32,17 @@ while not PriOpcion.isdigit() or int(PriOpcion) < 1 or int(PriOpcion) >8:
 #Convertimos a integer la variable priOpcion
 opcion =int(PriOpcion)
 
+#Si es 1 
 if opcion == 1:
     print("\n Ingrese la cantidad de herramientas para subir: ")
     cantHerramientasPri = input (" ")
-    #Verificamos que el usuario ingrese un numero
+    #Verificamos que el usuario ingrese un numero y que sea distinto a 0 o si es negatico
     while not cantHerramientasPri.isdigit() or int(cantHerramientasPri) == 0:
         print("\n No ah ingresado un numero o el numero es menor a 0, intente nuevamente: ")
         cantHerramientasPri = input (" ")
     #Convertimos a integer la variable cantHerramientasPri    
     cantHerramientas =int(cantHerramientasPri)
+    #Inicializamos una variable que utilizaremos como contadora
     cargados = 0
 
     while cargados < cantHerramientas:    
@@ -54,10 +54,11 @@ if opcion == 1:
         elif nombreHerramienta in listaHerramientas:
             print(f"La herramienta {nombreHerramienta} ya esta registrada")
         else:
+            #Agregamos la herramienta a la lista y aumentamos el contador
             listaHerramientas.append(nombreHerramienta)
             cargados += 1
 
-#ignorar este print
+
 print(listaHerramientas)
 
 

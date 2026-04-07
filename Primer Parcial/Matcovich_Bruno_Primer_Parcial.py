@@ -6,18 +6,28 @@
 #que el usuario indicó antes de la carga.
 
 
+#Inicializamos una lista vacia para guardar las herramientas
+
+listaHerramientas = []
+PriOpcion = ""
 
 #Creamos lo que sera el menu interactivo
-
 print("\n--Menu--")
 
-print("\n 1. Cargar Herramienta ")
+print("\n 1. Cargar Inicial de Herramientas")
+print("\n 2. Carga de Existencias ")
+print("\n 3. Visualización de Inventario ")
+print("\n 4. Consulta de Stock (existencias) ")
+print("\n 5. Reporte de Agotados ")
+print("\n 6. Alta de Nuevo Producto")
+print("\n 7. Actualización de Stock (Venta/Ingreso) ")
+print("\n 8. Salir ")
 
 PriOpcion = input("\n Eliga una de las siguientes opciones: ")
 
 #Verificamos si el usuario ingreso correctamente un numero
-while not PriOpcion.isdigit():
-    print("\nNo ah ingresado un numero, intente nuevamente.")
+while not PriOpcion.isdigit() or int(PriOpcion) < 1 or int(PriOpcion) >8:
+    print("\n Ingrese un numero valido (entre el 1 y el 8): ")
     PriOpcion = input("\n Eliga una de las siguientes opciones: ")
 
 
@@ -25,18 +35,29 @@ while not PriOpcion.isdigit():
 opcion =int(PriOpcion)
 
 if opcion == 1:
-    print("\nIngrese la cantidad de herramientas para subir: ")
+    print("\n Ingrese la cantidad de herramientas para subir: ")
     cantHerramientasPri = input (" ")
     #Verificamos que el usuario ingrese un numero
-    while not cantHerramientasPri.isdigit():
-        print("\nNo ah ingresado un numero intente nuevamente: ")
+    while not cantHerramientasPri.isdigit() or int(cantHerramientasPri) == 0:
+        print("\n No ah ingresado un numero o el numero es menor a 0, intente nuevamente: ")
         cantHerramientasPri = input (" ")
     #Convertimos a integer la variable cantHerramientasPri    
     cantHerramientas =int(cantHerramientasPri)
-    for i in range(cantHerramientas):
-        nombreHerramienta =input("\nIngrese el nombre de la herramienta: ")
+    cargados = 0
+
+    while cargados < cantHerramientas:    
+        nombreHerramienta =input("\n Ingrese el nombre de la herramienta: ")
         #Verificamos que haya ingresado un string
-        while not nombreHerramienta.isalpha():
-            print("\nNo ah ingresado un nombre valido, porfavor intente nuevamente: ")
-            nombreHerramienta =input("\nIngrese el nombre de la herramienta: ")
-        
+        if nombreHerramienta == "" or not nombreHerramienta.isalpha():
+            print("\n No ah ingresado un nombre valido, porfavor intente nuevamente: ")
+        #Verificamos si la herramienta esta en la lista
+        elif nombreHerramienta in listaHerramientas:
+            print(f"La herramienta {nombreHerramienta} ya esta registrada")
+        else:
+            listaHerramientas.append(nombreHerramienta)
+            cargados += 1
+
+#ignorar este print
+print(listaHerramientas)
+
+

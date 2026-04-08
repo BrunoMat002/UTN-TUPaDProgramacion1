@@ -102,6 +102,34 @@ while opcion != "8":
         for i in range(len(listaHerramientas)):
             print(f"Usted tiene: -- {listaCantidadHerramientas[i]} {listaHerramientas[i]} -- ")
 
+    #4. Consulta de Stock (existencias): Buscar una herramienta por su nombre y mostrar
+    #cuántas unidades hay disponibles.
+    elif opcion == 4:
+        #Verificamos que se hayan cargados elementos en la lista
+        if len(listaHerramientas) == 0:
+            print("Primero debe cargar herramientas para poder visualizarlas")
+            continue
+        #Pedimos al usuario que ingrese la herramienta
+        consulta = input("Ingrese el nombre de la herramienta que quiere buscar: ")
+        #Verificamos que ingrese un string, y no un 0 o este vacio
+        while consulta == "" or not consulta.isalpha():
+            print("Ingrese por favor un nombre valido: ")
+            consulta = input("Ingrese el nombre de la herramienta que quiere buscar: ")
+        #Verificamos en la lista si esta ese nombre
+        if consulta in listaHerramientas:
+            indice = listaHerramientas.index(consulta)
+        # 4. Accedemos directamente al valor en la lista de cantidades usando ese índice
+        # Cada valor puede ser accedido directamente mediante su índice correspondiente 
+            unidades = listaCantidadHerramientas[indice]
+    
+            print(f"\nResultado de la búsqueda:")
+            print(f"Herramienta: {consulta}")
+            print(f"Unidades disponibles: {unidades}")
+        else:
+            # Si el valor no está presente, el operador 'in' retorna False 
+            print(f"\nError: La herramienta '{consulta}' no se encuentra en el inventario.")
+
+
     elif opcion == 8:
         break
 

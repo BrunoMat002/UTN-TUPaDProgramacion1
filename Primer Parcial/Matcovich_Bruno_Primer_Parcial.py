@@ -5,6 +5,7 @@
 #Inicializamos las listas y variables que necesitamos
 listaHerramientas = []
 listaCantidadHerramientas = []
+listaCero = []
 opcion = ""
 
 while opcion != "8":
@@ -118,8 +119,7 @@ while opcion != "8":
         #Verificamos en la lista si esta ese nombre
         if consulta in listaHerramientas:
             indice = listaHerramientas.index(consulta)
-        # 4. Accedemos directamente al valor en la lista de cantidades usando ese índice
-        # Cada valor puede ser accedido directamente mediante su índice correspondiente 
+            #Accedemos directamente al valor en la lista de cantidades usando ese índice 
             unidades = listaCantidadHerramientas[indice]
     
             print(f"\nResultado de la búsqueda:")
@@ -128,8 +128,19 @@ while opcion != "8":
         else:
             # Si el valor no está presente, el operador 'in' retorna False 
             print(f"\nError: La herramienta '{consulta}' no se encuentra en el inventario.")
-
-
+    #5. Reporte de Agotados: Listar únicamente aquellos productos cuyo stock sea igual a cero.
+    elif opcion == 5:
+        #verificamos que se hayan cargados las cantidades de herramientas
+        if len(listaCantidadHerramientas) == 0:
+            print("Primero se deben agregar las cantidades de herramientas")
+            continue
+        #recorremos la lista de cantidades de herramientas
+        for i in range(len(listaCantidadHerramientas)):
+            if listaCantidadHerramientas[i] == 0:
+                listaCero.append(listaHerramientas[i])
+        #Al final mostramos las herramientas que tienen stock 0
+        print(f"Las herramientas que tienen stock 0 son: {listaCero} ")
+        
     elif opcion == 8:
         break
 

@@ -139,8 +139,48 @@ while opcion != "8":
             if listaCantidadHerramientas[i] == 0:
                 listaCero.append(listaHerramientas[i])
         #Al final mostramos las herramientas que tienen stock 0
-        print(f"Las herramientas que tienen stock 0 son: {listaCero} ")
+        if len(listaCero) > 0:
+            print(f"Las herramientas que tienen stock 0 son: {listaCero} ")
+        else:
+            print("No hay productos agotados actualmente.")
+    
+    #6. Alta de Nuevo Producto: Permitir agregar solo una nueva herramienta al final de las
+    #listas con su stock inicial. En caso de nombre vacío, nombre duplicado o valor de
+    #existencia negativo se debe volver al menú principal mostrando por pantalla el motivo
+    elif opcion == 6:
+        #primero veirifcamos que este cargada la lista de herramientas
+        if len(listaHerramientas) == 0:
+            print("Primero debe de ingresar herramientas.")
+            continue
+        #Pedimos al usuario que ingrese la nueva herramienta
+        nueva_Herramienta = input("Ingrese el nombre de la nueva herramienta: ")
+        #Verificamos todos los casos de error
+        if nueva_Herramienta == "" or not nueva_Herramienta.isalpha():
+            print("Usted a dejado el espacio en blanco o ah ingresado un nombre no valido, por favor ingrese un nombre de manera correcta.")
+            continue
+        elif nueva_Herramienta in listaHerramientas:
+            print(f"la herramienta {nueva_Herramienta}, ya se encuentra en la lista, porfavor ingrese una nueva herramienta.")
+            continue
         
+        
+        #Agregamos su cantidad en stock
+        cant_Nueva_Herramienta_Pri =input(f"Ingrese la cantidad de {nueva_Herramienta}, que posee: ")
+        if not cant_Nueva_Herramienta_Pri.isdigit():
+            print("El valor deberia ser numerico, no puede contener letras, porfavor ingrese un valor correcto")
+            continue
+        cant_Nueva_Herramienta=int(cant_Nueva_Herramienta_Pri)
+        #Verificamos que el numero ingresado no es negativo
+        if cant_Nueva_Herramienta < 0:
+            print("El numero de stock no puede ser negativo, por favor ingrese un valor valido.")
+            continue
+
+        #Solo si todo esta bien agregamos en ambas listas.
+        listaHerramientas.append(nueva_Herramienta)
+        listaCantidadHerramientas.append(cant_Nueva_Herramienta)
+    #7. Actualización de Stock (Venta/Ingreso):
+    #o Venta: Disminuir el stock tras validar que hay unidades suficientes.
+    #o Ingreso: Aumentar el stock por reposición de mercadería.
+
     elif opcion == 8:
         break
 

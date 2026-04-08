@@ -73,20 +73,39 @@ while opcion != "8":
         if len(listaHerramientas) == 0:
             print("Primero ingrese herramientas para este paso")
             continue
+        # Inicializamos dos valores, con los cuales verificaremos que se cargue solo las nuevas cantidades
+        # de las herramientas que no tengamos ya cargadas en las listas.
+        inicio = len(listaCantidadHerramientas)
+        fin = len(listaHerramientas)
+
+        if inicio == fin:
+            print("Todas las herramientas ya tienen stock cargado.")
+        else: 
         #Recorremos toda la lista cargada e ingresamos en otra lista la cantidad de herramientas que posee
-        for i in range(len(listaHerramientas)):
-            totalHerramientasPri = input(f"Ingrese la cantidad de {listaHerramientas[i]} que tiene: ")
-            #Verificamos que el usuario ingrese un numero
-            while not totalHerramientasPri.isdigit():
-                print("ingrese un numero porfavor: ")
+            for i in range(inicio, fin):
                 totalHerramientasPri = input(f"Ingrese la cantidad de {listaHerramientas[i]} que tiene: ")
-            totalHerramientas =int(totalHerramientasPri)
-            listaCantidadHerramientas.append(totalHerramientas)
-            
+                #Verificamos que el usuario ingrese un numero
+                while not totalHerramientasPri.isdigit():
+                    print("ingrese un numero porfavor: ")
+                    totalHerramientasPri = input(f"Ingrese la cantidad de {listaHerramientas[i]} que tiene: ")
+                totalHerramientas =int(totalHerramientasPri)
+                listaCantidadHerramientas.append(totalHerramientas)
+                
+
+    #3. Visualización de Inventario: Mostrar el listado completo de herramientas junto a su stock actual.
+    elif opcion == 3:
+        #Verificamos que los inventarios esten cargados
+        if len(listaHerramientas) == 0 or len(listaCantidadHerramientas) == 0:
+            print("Primero debe cargar herramientas y sus cantidades para poder visualizarlas")
+            continue
+        #Mostramos en pantalla ambas listas
+        for i in range(len(listaHerramientas)):
+            print(f"Usted tiene: -- {listaCantidadHerramientas[i]} {listaHerramientas[i]} -- ")
 
     elif opcion == 8:
         break
-print(listaHerramientas)
-print(listaCantidadHerramientas)
+
+
+
 
 

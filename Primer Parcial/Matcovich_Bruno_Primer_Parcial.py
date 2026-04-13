@@ -29,7 +29,7 @@ while opcion != "8":
         pri_opcion = input("\n Eliga una de las siguientes opciones: ")
 
 
-    #Convertimos a integer la variable priOpcion
+    #Convertimos a integer 
     opcion =int(pri_opcion)
 
 #1. Carga Inicial de Herramientas: Registrar los nombres de las herramientas que se
@@ -38,8 +38,6 @@ while opcion != "8":
 #debe seguir pidiendo hasta que sea correcto respetando la cantidad de herramientas
 #que el usuario indicó antes de la carga.
 
-
-    #Si es 1 
     if opcion == 1:
         print("\n Ingrese la cantidad de herramientas para subir: ")
         total_herramientas_pri = input (" ")
@@ -47,7 +45,7 @@ while opcion != "8":
         while not total_herramientas_pri.isdigit() or int(total_herramientas_pri) == 0:
             print("\n No ah ingresado un numero o el numero es menor a 0, intente nuevamente: ")
             total_herramientas_pri = input (" ")
-        #Convertimos a integer la variable cantHerramientasPri    
+        #Convertimos a integer     
         cant_herramientas =int(total_herramientas_pri)
         #Inicializamos una variable que utilizaremos como contadora
         cargados = 0
@@ -77,8 +75,8 @@ while opcion != "8":
         if len(lista_herramientas) == 0:
             print("\n Primero ingrese herramientas para este paso")
             continue
-        # Inicializamos dos valores, con los cuales verificaremos que se cargue solo las nuevas cantidades
-        # de las herramientas que no tengamos ya cargadas en las listas.
+        # Inicializamos dos valores, con los cuales verificaremos que se cargue solo las nuevas cantidades  de las herramientas que no tengamos 
+        # ya cargadas en las listas.
         inicio = len(lista_cantidad_herramientas)
         fin = len(lista_herramientas)
 
@@ -131,6 +129,8 @@ while opcion != "8":
         else:
             # Si el valor no está presente, el operador 'in' retorna False 
             print(f"Error: La herramienta '{consulta}' no se encuentra en el inventario.")
+
+            
     #5. Reporte de Agotados: Listar únicamente aquellos productos cuyo stock sea igual a cero.
     elif opcion == 5:
         lista_cero = []

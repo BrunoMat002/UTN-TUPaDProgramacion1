@@ -6,17 +6,18 @@ a = 10
 b = input("Introduce un número: ")
 
 try:
+    #Convierto el string en entero
     bFinal = int(b)
     result = a / bFinal 
     print(f"Resultado: {result}")
-except ZeroDivisionError:
-    print("Ingrese otro numero que no sea 0. ")
+    #Verifico que ingrese un numero
 except ValueError:
     print("Debera ingresar un numero valido. ")
     
 
 numbers = [1, 2, 3]
 try:
-    print(numbers[5]) #Error: IndexError. numbers[5] no existe ya que la lista llega hasta el indice 2 que seria el valor 3. 
+    print(numbers[5])  
 except IndexError:
+    #Informo que el valor esta fuera de rango
     print("El rango no es el correcto. ")

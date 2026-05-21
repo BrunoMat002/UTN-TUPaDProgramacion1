@@ -23,4 +23,4 @@ cantidad_nuevo = input("Cantidad: ")
 
 #Lo agregamos al archivo sin borrar lo anterior
 with open("productos.txt", "a", encoding="utf-8") as archivo:
-    archivo.write(f"{nombre_nuevo},{precio_nuevo},{cantidad_nuevo}")
+    archivo.write(f"{nombre_nuevo},{precio_nuevo},{cantidad_nuevo}\n")

@@ -1,0 +1,8 @@
+#1. Crear archivo inicial con productos: Crear un archivo de texto llamado
+#productos.txt con tres productos. Cada línea debe tener: nombre,precio,cantidad
+
+Yerba,$1500,3
+
+Harina,1000,4
+
+Gaseosa,1500,2

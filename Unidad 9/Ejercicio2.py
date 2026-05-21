@@ -4,7 +4,7 @@
 #Producto: Lapicera | Precio: $120.5 | Cantidad: 30
 
 #Abrimos el archivo productos.txt y hacemos que lea cada linea
-with open("productos.txt", "r") as archivo:
+with open("productos.txt", "r", encoding="utf-8") as archivo:
     for linea in archivo:
         #Procesa cada uno con strip(elimina cosas invisibles) y split(divide el texto en partes y al agregarle "," lo separamos en coma)
         datos = linea.strip().split(",")
